@@ -1,0 +1,58 @@
+<h1 class="mt-5">Desechos, borrar en cuanto haga la página completa</h1>
+
+<!--INCREMENTAR/DECREMENTAR-->
+<br><br><br>
+<button (click)="incrementar()">+</button>
+<p>{{numero}}</p>
+<button (click)="decrementar()">-</button>
+
+<!--COLOR TEXTO-->
+<p class="text-{{text_color}}">Este texto es de color {{nombre_color}}</p>
+<!--para una clase dinamica [class]="variable" ó [ngClass]="variable" como se hace posteriormente con la imagen-->
+<button class="btn btn-primary {{modo}}" (click)="cambiarAzul()">Azul</button>
+<button class="btn btn-danger {{modo}}" (click)="cambiarRojo()">Rojo</button>
+<button class="btn btn-success {{modo}}" (click)="cambiarVerde()">Verde</button>
+<button class="btn btn-secondary" (click)="cambiarModo()">Activar/Desactivar</button>
+<br><br><br><br><br>
+<!--CAMBIAR IMAGEN-->
+<button class="btn btn-danger" (click)="imagen=imagen1">Imagen 1</button>
+<button class="btn btn-primary" (click)="imagen=imagen2">Imagen 2</button>
+<img [src]="imagen" alt="">
+
+<hr>
+<hr>
+<hr>
+<!--FORMULARIO-->
+<h1>Formulario</h1>
+<input class="form-control" type="text" #nombre>
+<button class="btn btn-primary mt-2" (click)="agregarNombre(nombre.value)">Agregar</button>
+<div class="alert alert-primary mt-2" *ngIf="alerta; else noEnviado">
+    <p>Se ha enviado correctamente</p>
+    <button class="btn btn-danger" (click)="alerta=false">x</button>
+</div>
+<ng-template #noEnviado>
+    <div class="alert alert-danger mt-2">Mensaje no enviado</div>
+</ng-template>
+
+<!--BUCLE FOR LISTA-->
+<ul>
+    <li *ngFor="let persona of personas">
+        {{persona.nombre}}, {{persona.edad}}
+    </li>
+</ul>
+
+<!--SWITCH-->
+
+<input type="text" #newDay>
+<button class="btn btn-primary" (click)="dia=newDay.value">Mostrar dia</button>
+
+<div [ngSwitch]="dia" *ngIf="dia">
+    <span *ngSwitchCase="'1'">Lunes</span>
+    <span *ngSwitchCase="'2'">Martes</span>
+    <span *ngSwitchCase="'3'">Miercoles</span>
+    <span *ngSwitchCase="'4'">Jueves</span>
+    <span *ngSwitchCase="'5'">Viernes</span>
+    <span *ngSwitchCase="'6'">Sábado</span>
+    <span *ngSwitchCase="'7'">Domingo</span>
+    <span *ngSwitchDefault>Valor no válido</span>
+</div>

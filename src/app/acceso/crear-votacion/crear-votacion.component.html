@@ -1,0 +1,70 @@
+<form class="row g-3 needs-validation" novalidate>
+    <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Título de la votación: </label>
+        <input type="text" class="form-control" id="validationCustom01" value="" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Límite de votantes: </label>
+        <input type="number" class="form-control" id="validationCustom01" value="" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Límite de tiempo: </label>
+        <input type="number" class="form-control" id="validationCustom01" value="" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Ingrese las candidaturas: </label>
+        <input type="text" class="form-control" id="validationCustom01" value="" required>
+        <input type="text" class="form-control" id="validationCustom01" value="" required>
+        <button class="btn btn-warning">+</button>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <label for="validationCustom04" class="form-label">Tipo de votación: </label>
+        <select class="form-select" id="validationCustom04" required>
+            <option selected disabled value="">personas...</option>
+            <option>
+                <10 </option>
+            <option>
+                <100 </option>
+            <option>
+                <1000 </option>
+            <option>
+                <10000 </option>
+            <option>
+                >10000 </option>
+        </select>
+        <div class="invalid-feedback">
+            Please select a valid state.
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+            <label class="form-check-label" for="invalidCheck">
+                Agree to terms and conditions
+            </label>
+            <div class="invalid-feedback">
+                You must agree before submitting.
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit" routerLink="/codigo-votacion">Añadir votación a la Blockchain y
+            COMENZAR</button>
+    </div>
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit">Agregar otra votación</button>
+    </div>
+</form>
