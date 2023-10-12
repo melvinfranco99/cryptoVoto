@@ -5,13 +5,13 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { AccesoComponent } from './acceso/acceso.component';
-import { DocumentacionComponent } from './documentacion/documentacion.component';
-import { TutorialComponent } from './tutorial/tutorial.component';
-import { ContactoComponent } from './contacto/contacto.component';
+import { DocumentacionComponent } from './navbar/documentacion/documentacion.component';
+import { TutorialComponent } from './navbar/tutorial/tutorial.component';
+import { ContactoComponent } from './navbar/contacto/contacto.component';
 
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { DesechosComponent } from './desechos/desechos.component';
+import { DesechosComponent } from './navbar/desechos/desechos.component';
 import { CrearVotacionComponent } from './acceso/crear-votacion/crear-votacion.component';
 import { CodigoVotacionComponent } from './acceso/crear-votacion/codigo-votacion/codigo-votacion.component';
 import { AccederVotacionComponent } from './acceso/acceder-votacion/acceder-votacion.component';
@@ -19,6 +19,7 @@ import { VotacionComponent } from './acceso/acceder-votacion/votacion/votacion.c
 import { UstedHaVotadoComponent } from './acceso/acceder-votacion/votacion/usted-ha-votado/usted-ha-votado.component';
 import { ResultadosVotacionComponent } from './acceso/resultados-votacion/resultados-votacion.component';
 import { GraficaResultadosComponent } from './acceso/resultados-votacion/grafica-resultados/grafica-resultados.component';
+import { FormsModule } from '@angular/forms';
 
 const rutas: Routes = [
 
@@ -106,6 +107,7 @@ const rutas: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(rutas)
   ],
   providers: [],

@@ -56,3 +56,16 @@
     <span *ngSwitchCase="'7'">Domingo</span>
     <span *ngSwitchDefault>Valor no válido</span>
 </div>
+
+<br><br>
+<hr><br>
+<!--Crear Lista-->
+<input type="text" #txtNombre required>
+<button class="btn btn-primary" (click)="anadirNombre(txtNombre.value)">Agregar</button>
+<ul *ngIf="pulsadoAnadir;else noAnadido">
+    <div *ngFor="let nom of nombres">
+        <li>{{nom}}</li>
+    </div>
+</ul>
+<ng-template #noAnadido> <br>No se ha añadido ningún nombre</ng-template>
+<br><br><br><br><br><br><br>

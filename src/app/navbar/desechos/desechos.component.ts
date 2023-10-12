@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Persona } from '../persona';
+import { Persona } from '../../persona';
 
 @Component({
   selector: 'app-desechos',
@@ -89,6 +89,20 @@ export class DesechosComponent {
   //SWITCH
 
   dia?: string; //el signo de interrogacion es para no inicializarlo
+
+  //Crear lista
+
+  nombres: String[];
+  pulsadoAnadir = false;
+
+  constructor() {
+    this.nombres = [];
+  }
+
+  anadirNombre(_nombre: String) {
+    this.pulsadoAnadir = true;
+    this.nombres.push(_nombre);
+  }
 
 
 
