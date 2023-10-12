@@ -104,6 +104,25 @@ export class DesechosComponent {
     this.nombres.push(_nombre);
   }
 
+  //Subir archivos
+  seleccionarArchivo() {
+    const inputArchivo = document.getElementById('inputArchivo') as HTMLInputElement;
+    inputArchivo.click();
+  }
+
+  cargarArchivo(evento: any) {
+    const archivoSeleccionado = evento.target.files[0];
+    const lector = new FileReader();
+    lector.onload = () => {
+      const contenido = lector.result as string;
+      console.log(contenido);
+      // Aquí puedes hacer lo que quieras con el contenido del archivo
+    };
+    lector.readAsText(archivoSeleccionado);
+  }
+
+
+
 
 
 }

@@ -68,4 +68,9 @@
     </div>
 </ul>
 <ng-template #noAnadido> <br>No se ha añadido ningún nombre</ng-template>
-<br><br><br><br><br><br><br>
+<br><br><br>
+<hr><br><br><br><br>
+
+<!--Subir Archivo-->
+<button class="btn btn-warning" (click)="seleccionarArchivo()">Seleccionar archivo</button>
+<input type="file" id="inputArchivo" style="display: none" accept=".xlsx, .xls" (change)="cargarArchivo($event)">
