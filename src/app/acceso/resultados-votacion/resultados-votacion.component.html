@@ -1,20 +1,20 @@
 <form class="row g-3 needs-validation" novalidate>
     <div class="col-md-4">
-        <label for="validationCustom01" class="form-label">Introduce el título de la votación: </label>
-        <input type="text" class="form-control" id="validationCustom01" value="" required>
-        <div class="valid-feedback">
-            Looks good!
-        </div>
+        <label for="titulo" style="margin-left: 310px;" class="form-label col-md-6">Introduce el título de
+            la votación: </label>
+        <input #titulo type="text" style="margin-left: 210px;" class="form-control" id="titulo" value="" required>
     </div>
     <div class="col-md-4">
-        <label for="validationCustom01" class="form-label">Introduce el código de la votación: </label>
-        <input type="text" class="form-control" id="validationCustom01" value="" required>
-        <div class="valid-feedback">
-            Looks good!
-        </div>
+        <label for="codigo" style="margin-left: 330px;" class="form-label col-md-6">Introduce el código de
+            la
+            votación: </label>
+        <input #codigo type="text" style="margin-left: 230px;" class="form-control" id="codigo" value="" maxlength="64"
+            required>
     </div>
-    
-    <div class="col-12">
-        <button class="btn btn-primary" type="submit" routerLink="/grafica-resultados">Ver los resultados de la votación</button>
+
+    <div class="col-12 mt-4">
+        <button class="btn btn-primary" type="submit" (click)="validar(titulo.value, codigo.value)">Ver los
+            resultados de la
+            votación</button>
     </div>
 </form>

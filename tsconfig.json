@@ -2,6 +2,27 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "crypto": [
+        ".node_modules/crypto-browserify"
+      ],
+      "stream": [
+        ".node_modules/crypto-browserify"
+      ],
+      "assert": [
+        ".node_modules/assert"
+      ],
+      "http": [
+        ".node_modules/stream-http"
+      ],
+      "https": [
+        ".node_modules/https-browserify"
+      ],
+      "os": [
+        ".node_modules/os-browserify"
+      ],
+    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
@@ -18,7 +39,11 @@
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
-    "types": ["web3"],
+    "types": [
+      "web3",
+      "node",
+      "@types/chart.js"
+    ],
     "useDefineForClassFields": false,
     "lib": [
       "ES2022",
@@ -30,5 +55,5 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
 }

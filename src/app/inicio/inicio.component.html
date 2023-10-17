@@ -1,5 +1,8 @@
 <!--INTERPOLACIÓN-->
 <div class="container">
     <h1 class="titulo mt-4 mx-5">{{title}}</h1>
-    <button class="btn btn-primary mx-5 mt-3" routerLink="/acceso"> Conectar MetaMask </button>
+    <button *ngIf="!loginUser" (click)="connect()" class="btn btn-primary mx-5 mt-3" routerLink="/acceso">
+        <!--añadir: 'routerLink="/acceso"' -->
+        Conectar MetaMask </button>
+    <h1 *ngIf="addressUserView">{{addressUser}}</h1>
 </div>

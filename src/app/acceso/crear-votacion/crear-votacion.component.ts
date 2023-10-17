@@ -72,11 +72,25 @@ export class CrearVotacionComponent {
     }
   }
 
+
+
   tituloVotacion?: String;
   limiteTiempo?: String;
+
   anadirVotacion(_txtCandidato: String, _txtCorreo: String, _tituloVotacion: String, _limiteTiempo: String) {
+    const checkbox1 = document.getElementById("invalidCheck1") as HTMLInputElement;
+    if (typeof (_limiteTiempo) == "number") {
+      let limiteTiempoINT = parseInt(_limiteTiempo);
+    }
+
     if (_tituloVotacion == "" || _limiteTiempo == "" || this.pulsadoAgregar_candidato == false || this.pulsadoAgregar_correo == false) {
       alert("Deben estar todos los campos rellenos para crear la votación.");
+    } else if (this.candidatos.length == 1) {
+      alert("No puede haber sólamente un candidato en la lista.");
+    } else if (this.correos.length == 1) {
+      alert("No puede haber sólamente un correo en la lista. ");
+    } else if (!checkbox1.checked) {
+      alert("Debe aceptar los términos y condiciones.");
     } else {
       if (window.confirm('¿Estás seguro de que deseas crear esta votación?')) {
         // Código que se ejecutará si el usuario hace clic en "Aceptar"
@@ -88,6 +102,16 @@ export class CrearVotacionComponent {
       }
 
     }
+  }
+
+
+
+  crearNuevaVotacion() {
+    this.candidatos.splice(0, this.candidatos.length);
+    this.correos.splice(0, this.correos.length);
+    this.limiteTiempo = "";
+    this.tituloVotacion = "";
+    this.router.navigate(['/crear-votacion']);
   }
 
   //Subir archivos
@@ -119,12 +143,37 @@ export class CrearVotacionComponent {
         }
       }
 
+      if (this.candidatos.length === 0) {
+        this.pulsadoAgregar_candidato = false;
+      }
+
     } else {
       // Código que se ejecutará si el usuario hace clic en "Cancelar"
       return;
     }
+  }
 
+  //Eliminar correo
 
+  eliminarCorreo(_correo: String) {
+    if (window.confirm('¿Estás seguro de que deseas eliminar este CORREO?')) {
+      // Código que se ejecutará si el usuario hace clic en "Aceptar"
+
+      for (let i = 0; i < this.correos.length; i++) {
+        if (_correo === this.correos[i]) {
+          this.correos.splice(i, 1);
+          break;
+        }
+      }
+
+      if (this.correos.length === 0) {
+        this.pulsadoAgregar_correo = false;
+      }
+
+    } else {
+      // Código que se ejecutará si el usuario hace clic en "Cancelar"
+      return;
+    }
   }
 
 

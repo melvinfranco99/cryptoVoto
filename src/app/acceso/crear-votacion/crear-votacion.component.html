@@ -1,19 +1,15 @@
 <div class="container">
+    <h1>Crear Votación</h1>
     <form class="row g-3 needs-validation mt-3" novalidate>
         <div class="col-md-6">
             <label for="validationCustom01" class="form-label">Título de la votación: </label>
             <input #tituloVotacion type="text" class="form-control" id="tituloVotacion" value=""
                 placeholder="Ejemplo: Comunidad de vecinos C/Carlos III, Nº3 . . ." required>
-            <div class="valid-feedback">
-                Looks good!
-            </div>
         </div>
         <div class="col-md-6">
             <label for="validationCustom01" class="form-label">Límite de tiempo (en dias): </label>
-            <input #limiteTiempo placeholder="1" type="number" class="form-control" id="limiteTiempo" value="" required>
-            <div class="valid-feedback">
-                Looks good!
-            </div>
+            <input #limiteTiempo placeholder="1" type="number" min="1" class="form-control" id="limiteTiempo" value=""
+                required>
         </div>
         <div class="col-md-6">
             <label for="validationCustom01" class="form-label">Ingrese las candidaturas: </label>
@@ -34,8 +30,8 @@
 
         </div>
         <div class="col-md-6">
-            <label for="validationCustom01" class="form-label">Ingrese los correos: </label>
-            <input #txtCorreo placeholder="Ejemplo/s: example@example.com" type="email" name="email"
+            <label for="validationCustom01" class="form-label">Ingrese los correos de los votantes: </label>
+            <input #txtCorreo placeholder="Ejemplo/s: example@zexample.com" type="email" name="email"
                 class="form-control" required maxlength="65" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
             <button class="btn btn-warning mt-4 col-md-5 mx-2" (click)="agregarCorreo(txtCorreo.value)">Añadir
                 Correo</button>
@@ -45,7 +41,8 @@
 
             <ul class="list-group mt-2" *ngIf="pulsadoAgregar_correo; else noAnadidoCorreo">
                 <div *ngFor="let correo of correos">
-                    <li class="list-group-item">{{correo}} <button class="btn btn-danger mx-2">Eliminar</button> </li>
+                    <li class="list-group-item">{{correo}} <button class="btn btn-danger mx-2"
+                            (click)="eliminarCorreo(correo)">Eliminar</button> </li>
                 </div>
             </ul>
             <ng-template #noAnadidoCorreo> <br> No se ha añadido ningún correo</ng-template>
@@ -53,7 +50,7 @@
         </div>
         <div class="col-12 mt-5">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="invalidCheck1" required>
+                <input #invalidCheck1 class="form-check-input" type="checkbox" value="" id="invalidCheck1" required>
                 <label class="form-check-label" for="invalidCheck1">
                     Estoy de acuerdo con los términos y condiciones
                 </label>
